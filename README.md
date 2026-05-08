@@ -1,8 +1,12 @@
 # 🎵 Unsupervised Neural Network for Multi-Genre Music Generation
 
-**Course:** CSE425 / EEE474 
+**Course:** CSE425    
+**Member 1:**  Md. Nahid Abrar (24141098)
+**Member 2:**  Towsif Khan     (22101186)
 
-— Neural Networks   
+.midi files drive link = 
+.ipynb google colab link =
+ 
 
 ## 📌 Project Overview
 This project explores unsupervised generative modeling for symbolic music (MIDI). By leveraging deep learning architectures, we aim to capture musical structures—such as melody, harmony, and rhythm—without the need for explicit genre labels. The pipeline processes raw MIDI data into piano-roll representations and token sequences to train three distinct generative models.
