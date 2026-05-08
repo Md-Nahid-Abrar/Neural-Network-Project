@@ -19,7 +19,7 @@ Based on the project environment, the directory is organized as follows:
 ├── imports.py
 ├── loading dataset.py
 ├── pre-processing.py   
-├───Task_Files                              
+├── Task_Files                              
 ├        ├──task1/
 │             ├── task-1 architecture.py
 │             ├── task-1 training.py
@@ -38,9 +38,6 @@ Based on the project environment, the directory is organized as follows:
 ├── maestro-v3.0.0/                       
 ├── soundfont.sf2                    
 ├── README.txt
-
-midi link
-colab link
 
 ```
 
