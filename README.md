@@ -1,6 +1,5 @@
 # 🎵 Unsupervised Neural Network for Multi-Genre Music Generation
-
-**Course:** CSE425    
+ 
 **Member 1:**  Md. Nahid Abrar (24141098)
 
 **Member 2:**  Towsif Khan     (22101186)
