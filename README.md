@@ -25,7 +25,7 @@ Based on the project environment, the directory is organized as follows:
 ├── loading dataset.py
 ├── pre-processing.py   
 ├── Task_Files                              
-├        ├──task1/
+│        ├──task1/
 │             ├── task-1 architecture.py
 │             ├── task-1 training.py
 │             ├── task-1 results.py             
