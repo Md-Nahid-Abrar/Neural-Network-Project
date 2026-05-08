@@ -6,9 +6,8 @@
 
 .midi files drive link = https://drive.google.com/drive/folders/1oDD36beMtr8Hjmc6wqqoJf1odqIYSnew?usp=sharing 
 
-.ipynb google colab link =
+.ipynb file google colab link = https://colab.research.google.com/drive/1igMZK9JvfhmrRFsNopaL4sWxmhmoLHxT?usp=sharing
 
-report pdf link = 
  
 
 ## 📌 Project Overview
