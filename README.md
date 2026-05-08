@@ -1,97 +1,133 @@
-# Neural-Network-Project
-Course: CSE425 / EEE474 — Neural Networks
+# 🎵 Unsupervised Neural Network for Multi-Genre Music Generation
 
-Target: Unsupervised representation learning for symbolic music (MIDI).
+**Course:** CSE425 / EEE474 
 
-This repository contains an end-to-end pipeline for generating multi-genre music using various deep learning architectures. Unlike supervised models, these networks learn musical structures, rhythms, and pitch distributions without explicit genre labels.
+— Neural Networks   
 
-📂 Repository Structure
+## 📌 Project Overview
+This project explores unsupervised generative modeling for symbolic music (MIDI). By leveraging deep learning architectures, we aim to capture musical structures—such as melody, harmony, and rhythm—without the need for explicit genre labels. The pipeline processes raw MIDI data into piano-roll representations and token sequences to train three distinct generative models.
+
+---
+
+## 📂 Repository Structure
 Based on the project environment, the directory is organized as follows:
 
-Plaintext
+```text
 .
-├── music_generation_project.ipynb   # Main Google Colab / Jupyter Notebook
-├── outputs/                         # Generated MIDI and Audio files
-│   ├── task1/                       # LSTM Autoencoder samples
-│   ├── task2/                       # VAE samples & latent interpolations
-│   ├── task3/                       # Transformer compositions
-│   └── baselines/                   # Random & Markov Chain samples
-├── maestro-v3.0.0/                  # Dataset directory (MIDI-only, ~57 MB)
-├── soundfont.sf2                    # FluidSynth soundfont for MIDI synthesis
-└── README.md                        # Project documentation
-🚀 Project Overview
-1. Dataset
-The model is trained on the MAESTRO Dataset (v3.0.0), a lightweight (57 MB) collection of high-quality MIDI recordings.
+├── dependencies.py
+├── EDA.py
+├── imports.py
+├── loading dataset.py
+├── pre-processing.py   
+├───Task_Files                              
+├        ├──task1/
+│             ├── task-1 architecture.py
+│             ├── task-1 training.py
+│             ├── task-1 results.py             
+│             ├── task-1 midi files output.py  
+│        ├── task2/
+│             ├── task-2 architecture.py
+│             ├── task-2 training.py
+│             ├── task-2 results.py
+│             ├── task-2 midi files output.py
+│        ├── task3/
+│             ├── task-3 architecture.py
+│             ├── task-3 training.py
+│             ├── task-3 results.py
+│             ├── task-3 midi files output.py
+├── maestro-v3.0.0/                       
+├── soundfont.sf2                    
+├── README.txt
 
-Pre-processing: Segments music into 128-step piano-roll windows (88 keys).
+midi link
+colab link
 
-Data Cleaning: Filters out sparse sequences (less than 2% active notes) to ensure the models learn meaningful patterns.
+```
 
-2. Core Tasks
-The project implements three distinct generative approaches:
 
-Task 1: LSTM Autoencoder (Reconstruction)
+## Key Features
+**1. Dataset:**
 
-Uses an LSTM bottleneck to compress 8-second windows into a 64-dimensional latent vector.
+MAESTRO v3.0.0
+We utilize the MAESTRO (MIDI and Audio Edited for Synchronous TRacks) dataset.
 
-Focuses on learning the fundamental structural reconstruction of piano-rolls.
+Size: ~57 MB (MIDI-only version).
 
-Task 2: Variational Autoencoder (VAE) (Diversity)
+Processing: 128-time-step windows with an 88-key piano-roll resolution.
 
-Implements a Gaussian latent space with the reparameterization trick.
+Cleaning: Implementation of a 2% activity threshold to filter out silent musical windows.
 
-Uses KL-Annealing and Focal Loss to manage the data's inherent sparsity.
+**2. Implemented Models**
 
-Includes Latent Space Interpolation to smoothly transition between musical styles.
+Task 1: 
 
-Task 3: Transformer Generator (Coherence)
+LSTM Autoencoder: Learns a compressed 64-dimensional latent representation of 8-second piano-roll segments.
 
-A decoder-only (GPT-style) Transformer using REMI tokenization via miditok.
+Task 2: 
 
-Implements causal masking and top-k sampling for long-form, coherent compositions.
+Variational Autoencoder (VAE): Introduces a probabilistic latent space using the reparameterization trick. Features KL-Annealing and Focal Loss to handle data sparsity.
 
-3. Evaluation Metrics
-Models are compared against Random and Markov Chain baselines using:
+Task 3: 
 
-Pitch Histogram Similarity: Comparison of generated vs. real pitch distributions.
+Transformer Generator: A decoder-only (GPT-style) architecture using REMI tokenization. Focuses on long-range temporal coherence in musical compositions.
 
-Rhythm Diversity: Analysis of quantized note-duration variety.
+**3. Evaluation Suite**
 
-Repetition Ratio: Pitch n-gram analysis to detect creativity vs. mechanical repetition.
+The models are evaluated against Random and Markov Chain baselines using:
 
-Perplexity (PPL): Likelihood-based evaluation for the Transformer model.
+Pitch Histogram Similarity: 
 
-🛠️ Installation & Usage
+Correlation between generated and ground-truth pitch distributions.
+
+Rhythm Diversity Score:
+
+Variety in quantized note durations.
+
+Repetition Ratio: 
+
+Pitch n-gram analysis to measure musical creativity.
+
+Perplexity (PPL): 
+Likelihood-based metric for the Transformer model.
+
+## 🛠️ Setup and Installation
 Prerequisites
-The project requires FluidSynth for MIDI synthesis and several Python libraries:
+Ensure you have Python 3.8+ installed. You will also need FluidSynth for MIDI-to-Audio synthesis.
+
+**Linux (Ubuntu/Colab):**
 
 Bash
-# System dependency (for audio playback)
 sudo apt-get install fluidsynth
+Python Libraries:
 
-# Python dependencies
-pip install pretty_midi miditok torch numpy matplotlib pyfluidsynth
-Running the Project
-Open music_generation_project.ipynb in Google Colab.
+Bash
+pip install pretty_midi miditok symusic numpy matplotlib torch torchaudio pyfluidsynth
+How to Run
+Clone the Repository:
 
-Run Section 1 & 2 to install dependencies and download the MAESTRO dataset.
+Bash
+git clone [https://github.com/your-username/music-generation-nn.git](https://github.com/your-username/music-generation-nn.git)
+cd music-generation-nn
+Open in Colab/Jupyter: Launch music_generation_project.ipynb.
 
-Execute the training blocks for Tasks 1, 2, or 3.
+Download Dataset: 
+The first cells in the notebook will automatically download the 57MB MAESTRO dataset.
 
-Check the /outputs/ folder for generated MIDI files and listen to the synthesized WAV results directly in the notebook.
+Train & Generate: 
+Execute the cells sequentially to train the models and generate MIDI files in the outputs/ folder.
 
-📊 Results & Visualizations
-The project generates several analytical plots, including:
+## 📊 Results
+The project provides:
 
-Training Curves: Reconstruction Loss (BCE) and KL-Divergence.
+**Loss Curves:** 
 
-Piano-Rolls: Visual comparisons of original vs. reconstructed vs. generated music.
+Visualizing reconstruction error and KL-divergence.
 
-Metric Tables: Comparative analysis of all models against the baselines.
+**Piano-Roll Plots:** 
 
-📜 License
-This project was developed for the CSE425/EEE474 Neural Networks course. All code and methodologies are intended for educational and research purposes.
+Comparing original recordings with model-generated outputs.
 
-Author: [Your Name/GitHub Handle]
+**Audio Playback:**
 
-Date: April 2026
+Synthesized .wav files using the VintageDreamsWaves soundfont.
+
