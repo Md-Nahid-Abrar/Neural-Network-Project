@@ -94,6 +94,10 @@ Perplexity (PPL):
 Likelihood-based metric for the Transformer model.
 
 ## 🛠️ Setup and Installation
+
+You can run it on cloud on Google Colab-
+https://colab.research.google.com/drive/1igMZK9JvfhmrRFsNopaL4sWxmhmoLHxT?usp=sharing
+
 Prerequisites
 Ensure you have Python 3.8+ installed. You will also need FluidSynth for MIDI-to-Audio synthesis.
 
